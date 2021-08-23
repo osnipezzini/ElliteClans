@@ -1,23 +1,17 @@
-﻿// JotunnModStub
-// a Valheim mod skeleton using Jötunn
-// 
-// File:    JotunnModStub.cs
-// Project: JotunnModStub
-
-using BepInEx;
+﻿using BepInEx;
 using BepInEx.Configuration;
 using UnityEngine;
 
-namespace JotunnModStub
+namespace ElliteClans
 {
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
     [BepInDependency(Jotunn.Main.ModGuid)]
     //[NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
     internal class JotunnModStub : BaseUnityPlugin
     {
-        public const string PluginGUID = "com.jotunn.jotunnmodstub";
-        public const string PluginName = "JotunnModStub";
-        public const string PluginVersion = "0.0.1";
+        public const string PluginGUID = "com.ellitedev.elliteclans";
+        public const string PluginName = "ElliteClans";
+        public const string PluginVersion = "1.0.0";
 
         private void Awake()
         {
@@ -25,9 +19,8 @@ namespace JotunnModStub
 
             // Acceptable value ranges can be defined to allow configuration via a slider in the BepInEx ConfigurationManager:
             // https://github.com/BepInEx/BepInEx.ConfigurationManager
-            Config.Bind<int>("Main Section", "Example configuration integer", 1, 
-                new ConfigDescription("This is an example config, using a range limitation for ConfigurationManager", 
-                new AcceptableValueRange<int>(0, 100)));
+            Config.Bind<bool>("General Settings", "Is running on server-side ?", false, 
+                new ConfigDescription("Set this if mod is running on server-side."));
 
             // Jotunn comes with its own Logger class to provide a consistent Log style for all mods using it
             Jotunn.Logger.LogInfo("ModStub has landed");
